@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&family=Jost:wght@300;400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-beige: #b1a99e;
+  --color-dark: #272727;
+  --color-orange: #ff8614;
+  --color-white: #f5f3f0;
+  --color-text: #1a1a1a;
+  --color-text-light: #6b6560;
+  --color-border: #d4cfc8;
+  --font-body: 'Gothic A1', sans-serif;
+  --font-display: 'Jost', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

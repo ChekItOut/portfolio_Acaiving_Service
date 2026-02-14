@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Brand Identity Design",
+    "thumbnail": "",
+    "description": "A comprehensive brand identity project including logo design, color palette, typography system, and brand guidelines for a modern tech startup.",
+    "skills": ["Figma", "Illustrator", "Branding"]
+  },
+  {
+    "id": "2",
+    "title": "E-Commerce Platform",
+    "thumbnail": "",
+    "description": "Full-stack e-commerce platform built with React and Node.js. Features include product catalog, shopping cart, payment integration, and admin dashboard.",
+    "skills": ["React", "Node.js", "TypeScript", "MongoDB"]
+  },
+  {
+    "id": "3",
+    "title": "Portfolio Website",
+    "thumbnail": "",
+    "description": "A minimal and elegant portfolio website designed to showcase creative work. Built with modern web technologies and smooth animations.",
+    "skills": ["React", "CSS", "Animation"]
+  }
+]
