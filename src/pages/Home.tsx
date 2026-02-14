@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ProfileSection from '../components/ProfileSection';
+import ProfileEditForm from '../components/ProfileEditForm';
 import PortfolioCard from '../components/PortfolioCard';
 import PortfolioForm from '../components/PortfolioForm';
 import type { Profile, Portfolio } from '../types';
@@ -8,14 +9,26 @@ interface Props {
   profile: Profile;
   portfolios: Portfolio[];
   onAddPortfolio: (portfolio: Portfolio) => void;
+  onUpdateProfile: (profile: Profile) => void;
 }
 
-export default function Home({ profile, portfolios, onAddPortfolio }: Props) {
+export default function Home({
+  profile,
+  portfolios,
+  onAddPortfolio,
+  onUpdateProfile,
+}: Props) {
   const [showForm, setShowForm] = useState(false);
+  const [showProfileEditForm, setShowProfileEditForm] = useState(false);
 
-  const handleSave = (portfolio: Portfolio) => {
+  const handleSavePortfolio = (portfolio: Portfolio) => {
     onAddPortfolio(portfolio);
     setShowForm(false);
+  };
+
+  const handleSaveProfile = (updatedProfile: Profile) => {
+    onUpdateProfile(updatedProfile);
+    setShowProfileEditForm(false);
   };
 
   return (
@@ -28,12 +41,11 @@ export default function Home({ profile, portfolios, onAddPortfolio }: Props) {
           title="Spline 3D Scene"
         />
         <div className="hero-content">
-          
           <p className="hero-subtitle">Archive & Portfolio</p>
         </div>
       </section>
 
-      <ProfileSection profile={profile} />
+      <ProfileSection profile={profile} onEdit={() => setShowProfileEditForm(true)} />
 
       <section id="portfolio" className="portfolio-section">
         <div className="portfolio-container">
@@ -49,7 +61,9 @@ export default function Home({ profile, portfolios, onAddPortfolio }: Props) {
             ))}
           </div>
           {portfolios.length === 0 && (
-            <p className="empty-message">No portfolios yet. Add your first project!</p>
+            <p className="empty-message">
+              No portfolios yet. Add your first project!
+            </p>
           )}
         </div>
       </section>
@@ -62,7 +76,15 @@ export default function Home({ profile, portfolios, onAddPortfolio }: Props) {
       </footer>
 
       {showForm && (
-        <PortfolioForm onSave={handleSave} onCancel={() => setShowForm(false)} />
+        <PortfolioForm onSave={handleSavePortfolio} onCancel={() => setShowForm(false)} />
+      )}
+
+      {showProfileEditForm && (
+        <ProfileEditForm
+          profile={profile}
+          onSave={handleSaveProfile}
+          onCancel={() => setShowProfileEditForm(false)}
+        />
       )}
     </>
   );

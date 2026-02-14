@@ -2,20 +2,30 @@ import type { Profile } from '../types';
 
 interface Props {
   profile: Profile;
+  onEdit: () => void;
 }
 
-export default function ProfileSection({ profile }: Props) {
+export default function ProfileSection({ profile, onEdit }: Props) {
   return (
     <section id="profile" className="profile-section">
       <div className="profile-container">
-        <div className="profile-header">
-          <div className="profile-avatar">
-            {profile.name.charAt(0)}
+        <div className="profile-header-wrapper">
+          <div className="profile-header">
+            <div className="profile-avatar">
+              {profile.avatar ? (
+                <img src={profile.avatar} alt={profile.name} />
+              ) : (
+                profile.name.charAt(0)
+              )}
+            </div>
+            <div className="profile-info">
+              <h1 className="profile-name">{profile.name}</h1>
+              <p className="profile-role">{profile.role}</p>
+            </div>
           </div>
-          <div className="profile-info">
-            <h1 className="profile-name">{profile.name}</h1>
-            <p className="profile-role">{profile.role}</p>
-          </div>
+          <button className="btn btn-edit" onClick={onEdit}>
+            Edit Profile
+          </button>
         </div>
         <p className="profile-bio">{profile.bio}</p>
         <div className="profile-skills">
