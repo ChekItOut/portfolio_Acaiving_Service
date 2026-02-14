@@ -28,7 +28,7 @@ export default function Home({ profile, portfolios, onAddPortfolio }: Props) {
           title="Spline 3D Scene"
         />
         <div className="hero-content">
-          <h1 className="hero-title">PROFILING</h1>
+          
           <p className="hero-subtitle">Archive & Portfolio</p>
         </div>
       </section>
